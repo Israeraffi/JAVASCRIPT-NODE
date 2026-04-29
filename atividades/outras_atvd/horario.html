@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horario do dia</title>
+  </head>
+  <style>
+    body {
+      font: normal 15pt Arial;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(255, 255, 255);
+      text-align: center;
+    }
+    #bloco {
+      color: rgb(0, 0, 0);
+      background-color: aliceblue;
+      padding: 2vw;
+      max-width: 40vw;
+      margin: 4vw auto 5vw auto;
+      border-radius: 5vw;
+    }
+    #bloco #parag {
+      padding: 0 0 2vw 0;
+    }
+    #bloco #imagns {
+      border-radius: 50vw;
+      padding: 0 0 2vw;
+      max-width: 37vw;
+      max-height: 40vw;
+    }
+    footer {
+      background-color: black;
+      color: aliceblue;
+      width: 100%;
+      font-size: 20px;
+      text-align: center;
+      padding: 1vw;
+      position: fixed;
+      bottom: 0px;
+    }
+  </style>
+  <body>
+    <div id="blocototal">
+      <h1>Hora do Dia</h1>
+      <div id="bloco">
+        <p id="parag"></p>
+        <img src="" alt="" id="imagns" />
+      </div>
+      <footer>&copyAtividades</footer>
+    </div>
+    <script>
+      let agora = new Date();
+      let hora = agora.getHours();
+      let minutos = agora.getMinutes();
+      let minutosFormatado = minutos < 10 ? "0" + minutos : minutos;
+      let body = document.querySelector("body");
+      let parag = document.querySelector("#parag");
+      let img = document.querySelector("#imagns");
+
+      if (hora >= 5 && hora < 12) {
+        parag.innerText = `Agora são ${hora}:${minutosFormatado} da manhã!`;
+        img.src = "imgs/manhã.jpg";
+        body.style.backgroundColor = "#fde08d";
+      } else if (hora >= 12 && hora <= 18) {
+        parag.innerText = `Agora são ${hora}:${minutosFormatado} da tarde!`;
+        img.src = "imgs/tarde.jpg";
+        body.style.backgroundColor = "#b9846f";
+      } else {
+        if (hora >= 1 && hora < 5) {
+          parag.innerHTML = `Agora são ${hora}:${minutosFormatado} da madrugada, <strong>vai dormir</strong>!`;
+          img.src = "imgs/gato.jpg";
+          body.style.backgroundColor = "#191970";
+        } else {
+          parag.innerText = `Agora são ${hora}:${minutosFormatado} da noite!`;
+          img.src = "imgs/noite.jpg";
+          body.style.backgroundColor = "#2c3e50";
+        }
+      }
+    </script>
+  </body>
+</html>

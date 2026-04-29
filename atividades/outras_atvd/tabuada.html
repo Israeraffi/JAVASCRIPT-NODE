@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TABUADA</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      background-color: cornflowerblue;
+      text-align: center;
+      font: normal 15pt Arial;
+    }
+    #bloco {
+      background-color: aliceblue;
+      width: 90%;
+      max-width: 400px;
+      min-height: 200px;
+      height: auto;
+      margin: 20px auto;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    #num {
+      width: 100%;
+      max-width: 250px;
+      height: 35px;
+      border-radius: 20px;
+      padding-left: 15px;
+      box-sizing: border-box;
+    }
+    #mostrar {
+      display: block;
+      margin: 20px auto;
+      width: 100%;
+      max-width: 250px;
+      min-height: 40px;
+      height: auto;
+      padding: 10px;
+      border-radius: 25px;
+      background-color: chartreuse;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #mostrar:hover {
+      filter: brightness(0.9);
+    }
+
+    footer {
+      background-color: black;
+      color: aliceblue;
+      width: 100%;
+      font-size: 20px;
+      text-align: center;
+      padding: 1vw;
+      position: fixed;
+      bottom: 0px;
+    }
+  </style>
+  <body>
+    <h1>TABUADA DE MULTIPLICAÇÃO</h1>
+    <div id="bloco">
+      <input type="number" id="num" placeholder="Digite o número..." />
+      <button id="mostrar" onclick="mostrar()">Mostrar</button>
+      <div id="result"></div>
+    </div>
+    <footer>&copyAtividades</footer>
+    <script>
+      function mostrar() {
+        let num = Number(document.querySelector("#num").value);
+        let result = document.querySelector("#result");
+        result.innerText = "";
+        for (i = 1; i <= 10; i++) {
+          let multi = num * i;
+          // é preciso usar o += para que o innerText guarde os valores conforme o laço se repete.
+          result.innerText += `${num} x ${i} = ${multi}\n`;
+        }
+      }
+    </script>
+  </body>
+</html>

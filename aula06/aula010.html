@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verificação de multas</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      font: normal 20pt Arial;
+      background-color: blanchedalmond;
+      text-align: center;
+    }
+    #vel {
+      display: block;
+      margin: 10vw auto 0 auto;
+      width: 50vw;
+      height: 4vw;
+      border-radius: 10px;
+    }
+    #butoncalc {
+      width: 50vw;
+      height: 4vw;
+      margin-top: 3vw;
+      background-color: chartreuse;
+      border-radius: 10px;
+    }
+    #result {
+      margin-top: 3vw;
+    }
+  </style>
+  <body>
+    <h1>Sistema de Multas</h1>
+    <input
+      type="number"
+      placeholder="Digite sua velocidade (Km/h)..."
+      id="vel"
+    />
+    <button onclick="calcular()" id="butoncalc">Verificar</button>
+    <div id="result"></div>
+    <script>
+      function calcular() {
+        let vel = Number(document.querySelector("#vel").value);
+        let result = document.querySelector("#result");
+
+        if (vel > 60) {
+          result.innerText =
+            "Você ultrapassou o limite da via de 60km/h, você foi multado no valor de R$150,00!";
+        } else {
+          result.innerText = "Você não foi multado!";
+        }
+      }
+    </script>
+  </body>
+</html>

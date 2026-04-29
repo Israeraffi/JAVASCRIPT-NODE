@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nacionalidade</title>
+  </head>
+  <style>
+    body{
+      font: normal 20pt Arial;
+      background-color: aquamarine;
+      text-align: center;
+    }
+    #país{
+      display: block;
+      margin: 10vw auto 0 auto;
+      width: 50vw;
+      height: 4vw;
+      border-radius: 10px;
+      padding: 0 0 0 1vw;
+    }
+    #buton{
+      width: 51vw;
+      height: 4vw;
+      border-radius: 10px;
+      margin: 3vw 0 0 0;
+      background-color: chartreuse;
+    }
+    #result{
+      margin: 5vw 0 0 0;
+    }
+  </style>
+  <body>
+    <h1>Sistema de Nacionalidade</h1>
+    <input
+      type="text"
+      placeholder="Digite qual seu país de nascência..."
+      id="país"
+    />
+    <button id="buton" onclick="verificação()">Verificar</button>
+    <div id="result"></div>
+
+    <script>
+      function verificação() {
+        let país = document.querySelector("#país").value;
+        let result = document.querySelector('#result');
+
+        if(país == 'Brasil' || país == 'brasil'){
+          result.innerText = 'Você é Brasileiro!'
+        }else{
+          result.innerText = 'Você é Estrangeiro!'
+        }
+      }
+    </script>
+  </body>
+</html>

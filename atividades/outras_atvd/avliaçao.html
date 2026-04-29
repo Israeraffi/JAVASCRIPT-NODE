@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validação</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      font: normal 15pt Arial;
+      background-color: cadetblue;
+    }
+    h1 {
+      text-align: center;
+    }
+    #div1 {
+      background-color: aliceblue;
+      max-width: 35vw;
+      margin: auto;
+      padding: 1vw;
+      display: block;
+      border-radius: 4vw;
+    }
+    #p1 #p2 {
+      margin: 1vw;
+    }
+    #idade {
+      width: 33vw;
+      height: 3vw;
+      border-radius: 5vw;
+    }
+    button {
+      display: block;
+      margin: 2vw auto;
+      padding: 1vw;
+      width: 33vw;
+      border-radius: 5vw;
+      background-color: chartreuse;
+      cursor: pointer;
+    }
+    #div2{
+      text-align: center;
+      padding: 1vw;
+    }
+    footer{
+      background-color: black;
+      color: aliceblue;
+      text-align: center;
+      bottom: 0px;
+      padding: 1vw;
+      width: 100%;
+      position: fixed;
+    }
+  </style>
+  <body>
+    <h1>Validor de Idade</h1>
+    <div id="div1">
+      <p id="p1">Ano de Nascimento:</p>
+      <input type="number" id="idade" placeholder="Digite sua idade..." />
+
+      <p id="p2">Sexo:</p>
+      <input type="radio" name="sexo" value="Masculino" /> Masculino
+      <input type="radio" name="sexo" value="Feminino" /> Feminino
+
+      <button onclick="verificar()">Verificar</button>
+      <div id="div2"></div>
+    </div>
+    <footer>&copyAtividades</footer>
+    <script>
+      function verificar() {
+        let agora = new Date();
+        let ano = agora.getFullYear();
+        let inputIdade = document.querySelector("#idade");
+        let valorIdade = inputIdade.value;
+        let sexo = document.querySelector('input[name="sexo"]:checked');
+        let calcIdade = Number(ano) - Number(valorIdade);
+        let d = document.querySelector("#div2");
+        let p1 = document.querySelector("#p1");
+        let p2 = document.querySelector("#p2");
+
+        if (valorIdade == "" && !sexo) {
+          p1.style.color = "red";
+          p2.style.color = "red";
+          alert(`PREENCHA TODOS OS DADOS!!`);
+        } else if (valorIdade == "" || !sexo) {
+          if (valorIdade == "") {
+            p1.style.color = "red";
+            alert(`PREENCHA TODOS OS DADOS!!`);
+          } else {
+            p2.style.color = "red";
+            alert(`PREENCHA TODOS OS DADOS!!`);
+          }
+        } else if (valorIdade > ano) {
+          p1.style.color = "red";
+          alert(`Digite um ano valido`);
+        } else {
+          if (sexo.value == "Masculino") {
+            d.innerText = `Você tem ${calcIdade} anos e é Homem!`;
+            p1.style.color = "green";
+            p2.style.color = "green";
+          } else {
+            d.innerText = `Você tem ${calcIdade} anos e é Mulher!`;
+            p1.style.color = "green";
+            p2.style.color = "green";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

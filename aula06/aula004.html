@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+    body {
+      font: normal 20px Arial;
+      text-align: center;
+      background-color: blanchedalmond;
+    }
+</style>
+
+<body>
+  
+  <script>
+   var nome = window.prompt('Digete seu nome: ');
+   var parcial = Number(window.prompt('Digite sua nota da parcial: '));
+   var bimestral = Number(window.prompt('Digite sua nota da bimestral: '));
+   var processual = Number(window.prompt('Digite sua nota da processual: '));
+   var nota = (parcial + bimestral + processual) / 3
+   var situacao = (nota >= 6 ? 'APROVADO, parabéns pelo seu esforço!!' : 'REPROVADO, não foi dessa vez se dedique mais na próxima!');
+   document.write(`Olá ${nome}! Você foi ${situacao} E sua média é ${nota.toFixed(1)}`);
+
+  </script>
+
+</body>
+</html>
